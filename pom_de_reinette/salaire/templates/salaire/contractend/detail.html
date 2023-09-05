@@ -1,0 +1,33 @@
+{% block content %}
+<h2>Détail de la fin de contrat {{ obj.name}}</h2>
+<h3>Salaires:</h3>
+<table class="styled">
+  <thead>
+    <tr>
+      <th>Cumul</th>
+      <th>Salaire assmat</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ obj.salary }} €</td>
+      <td>{{ obj.assmat_salary }} €</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Congés payés:</h3>
+<table class="styled">
+  <thead>
+    <tr>
+      <th>Cumul</th>
+      <th>Salaire assmat</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ obj.remaining_paid_leave_cost }} €</td>
+      <td>{{ obj.assmat_remaining_paid_leave }} €</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

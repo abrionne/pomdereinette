@@ -1,0 +1,68 @@
+{% block content %}
+<h1>Détail du contrat {{ obj.name}}</h1>
+<ul>
+    <li>Nombre d'heures par semaine : {{ obj.week_hours }}</li>
+    <li>Nombre de semaines : {{ obj.weeks_number }}</li>
+    <li>Nombre de mois : {{ obj.months_number }}</li>
+    <li>Tarification horaire : {{ obj.pricing }}</li>
+    <li>Heures supplémentaires / mois : {{ obj.supp_hours_number }} h</li>
+    <li>Nombre d'heures normales : {{ obj.week_hours_norms }} h</li>
+    <li>Nombre de jours d'activité : {{ obj.days_activity_number }}</li>
+    <li>Nombre de congés payés : {{ obj.paid_vacation_number }}</li>
+  </ul>
+<strong>Préférences</strong>:
+<table>
+  <thead>
+    <tr>
+      <th>Jour</th>
+      <th>Indemnité Entretien</th>
+      <th>Repas</th>
+      <th>Goûter</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>lundi</td>
+      <td><input type="checkbox" {% if obj.monday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.monday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.monday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>mardi</td>
+      <td><input type="checkbox" {% if obj.tuesday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.tuesday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.tuesday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>mercredi</td>
+      <td><input type="checkbox" {% if obj.wednesday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.wednesday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.wednesday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>jeudi</td>
+      <td><input type="checkbox" {% if obj.thursday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.thursday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.thursday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>vendredi</td>
+      <td><input type="checkbox" {% if obj.friday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.friday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.friday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>samedi</td>
+      <td><input type="checkbox" {% if obj.saturday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.saturday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.saturday_snack %}checked{% endif %} disabled></td>
+    </tr>
+    <tr>
+      <td>dimanche</td>
+      <td><input type="checkbox" {% if obj.sunday_ie %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.sunday_meal %}checked{% endif %} disabled></td>
+      <td><input type="checkbox" {% if obj.sunday_snack %}checked{% endif %} disabled></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

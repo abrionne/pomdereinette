@@ -1,0 +1,13 @@
+{% block list %}
+<h1>Mois du contrat {{contract.name}}</h1>
+<ul>
+    {% for i in obj %}
+        <li>
+            {{ i.month_name }} {{ i.year }}
+            - <a href="{% url 'month_detail' i.id %}" title="affichage dans nouvel onglet">[détail]</a>
+            - <a href="{% url 'month_update' i.id %}" id="update_ref">[modifier]</a>
+            - <a href="{% url 'month_delete' i.id %}">[supprimer]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

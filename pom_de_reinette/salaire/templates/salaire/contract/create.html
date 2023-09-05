@@ -1,0 +1,83 @@
+{% block content %}
+<h1>Création</h1>
+
+<form id="form" action="" method="post" novalidate>
+  {% csrf_token %}
+  <ul>
+      <span>Contrat : {{ obj.name }}</span>
+      <br><br>
+      <span>Nombre d'heures par semaine : {{ obj.week_hours }}</span>
+      <br><br>
+      <span>Nombre de semaines : {{ obj.weeks_number }}</span>
+      <br><br>
+      <span>Nombre de mois : {{ obj.months_number }}</span>
+      <br><br>
+      <span>Tarification horaire : {{ obj.pricing }}</span>
+      <br><br>
+      <span>Heures supplémentaires / mois : {{ obj.supp_hours_number }} h</span>
+      <br><br>
+      <span>Nombre d'heures normales : {{ obj.week_hours_norms }} h</span>
+      <br><br>
+      <span>Nombre de jours d'activité : {{ obj.days_activity_number }}</span>
+      <br><br>
+      <span>Nombre de congés payés : {{ obj.paid_vacation_number }}</span>
+      <br><br>
+      <strong>Préférences</strong>:
+      <table>
+        <thead>
+          <tr>
+            <th>Jour</th>
+            <th>Indemnité Entretien</th>
+            <th>Repas</th>
+            <th>Goûter</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <tr>
+            <td>lundi</td>
+            <td>{{obj.monday_ie}}</td>
+            <td>{{obj.monday_meal}}</td>
+            <td>{{obj.monday_snack}}</td>
+          </tr>
+          <tr>
+            <td>mardi</td>
+            <td>{{obj.tuesday_ie}}</td>
+            <td>{{obj.tuesday_meal}}</td>
+            <td>{{obj.tuesday_snack}}</td>
+          </tr>
+          <tr>
+            <td>mercredi</td>
+            <td>{{obj.wednesday_ie}}</td>
+            <td>{{obj.wednesday_meal}}</td>
+            <td>{{obj.wednesday_snack}}</td>
+          </tr>
+          <tr>
+            <td>jeudi</td>
+            <td>{{obj.thursday_ie}}</td>
+            <td>{{obj.thursday_meal}}</td>
+            <td>{{obj.thursday_snack}}</td>
+          </tr>
+          <tr>
+            <td>vendredi</td>
+            <td>{{obj.friday_ie}}</td>
+            <td>{{obj.friday_meal}}</td>
+            <td>{{obj.friday_snack}}</td>
+          </tr>
+          <tr>
+            <td>samedi</td>
+            <td>{{obj.saturday_ie}}</td>
+            <td>{{obj.saturday_meal}}</td>
+            <td>{{obj.saturday_snack}}</td>
+          </tr>
+          <tr>
+            <td>dimanche</td>
+            <td>{{obj.sunday_ie}}</td>
+            <td>{{obj.sunday_meal}}</td>
+            <td>{{obj.sunday_snack}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </ul>
+      <button type="submit">Soumettre</button>
+</form>
+{% endblock %}

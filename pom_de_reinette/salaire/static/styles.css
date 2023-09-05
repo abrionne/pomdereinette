@@ -1,0 +1,59 @@
+
+.styled td {
+    border-bottom: 1px solid grey;
+    background-color: rgb(252, 250, 250) ;
+    padding: 2.5px;
+    text-align: left;
+    vertical-align: bottom;
+}
+.styled2 td {
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: rgb(247, 243, 243) ;
+    padding: 20px;
+    text-align: center;
+    vertical-align: center;
+    margin: auto;
+    border-radius: 20px;
+}
+.container {
+    display: flex;
+    align-items: top;
+    width: 1900px;
+    height: 250px;
+  }
+.column{
+   width: 100%;
+}
+.box {
+    display: inline-block;
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none; 
+  }
+#box1{
+    top: 240px;
+}
+#box2{
+    top: -10px;
+    left: 970px;
+}
+#box3{
+    top: 240px;
+    left: 500px;
+}
+#box4{
+    top: 530px;
+}
+#box5{
+    top: 450px;
+    left: 500px;
+}
+#box6{
+    top: 750px;
+    left: 500px;
+}
+#box7{
+    top: 850px;
+    left: 0px;
+}

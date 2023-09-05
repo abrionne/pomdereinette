@@ -1,0 +1,39 @@
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'nav.js' %}"></script>
+</header>
+<nav>
+    <div class="container">
+        <div id="menu" class="column">
+            <h1 style="color: royalblue;font-size: 3.5em;text-align: center;">MAM Pom' de reinette</h1>
+            <table class="styled2">
+                <tbody>
+                    <tr>
+                        <td><a href="{% url 'cost_list' %}">Coûts</a></td>
+                        <td><a href="{% url 'pricing_list' %}">Tarifications horaires</a> </td>
+                        <td><a href="{% url 'contract_list' %}">Contrats</a> </td>
+                        <td><a href="{% url 'month_list' %}">Mois</a></td>
+                        <td><a href="{% url 'summary_list' %}">Cumuls mensuels</a></td>
+                        <td><a href="{% url 'contractend_list' %}">Fin de contrats</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="column">    
+            <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="230px" width="230px">
+        </div>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <div id="list" style="width:20%;">
+            {% block list %}{% endblock %}
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>

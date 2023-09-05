@@ -1,0 +1,39 @@
+{% block content %}
+<h1>Mise à jour</h1>
+<form id="form" action="" method="post" novalidate>
+  {% csrf_token %}
+  <ul>
+    <span>référence : {{ obj.name }}</span>
+    <br><br>
+    <span>Indemnité Entretien : {{ obj.IE }} €</span>
+    <br><br>
+    <span>repas : {{ obj.meal }} €</span>
+    <br><br>
+    <span>goûter : {{ obj.snack }} €</span>
+    <br><br>
+    <span>congés payés : {{ obj.paid_leave }} %</span>
+    <br><br>
+    <span>congés payés fraction supplémentaire : {{ obj.paid_leave_supp_frac }} % (salaire de {{obj.paid_leave_supp_frac_month}} uniquement)</span>
+    <br><br>
+    <span>CSG + RDS : {{ obj.csg_rds }} %</span>
+    <br><br>
+    <span>CSG déductible : {{ obj.csg_ded }} %</span>
+    <br><br>
+    <span>vieillesse 1 : {{ obj.old1 }} %</span>
+    <br><br>
+    <span>vieillesse 2 : {{ obj.old2 }} %</span>
+    <br><br>
+    <span>AGFF : {{ obj.agff }} %</span>
+    <br><br>
+    <span>retraite complémentaire : {{obj.supplementary_pension }} %</span>
+    <br><br>
+    <span>prévoyance : {{obj.personal_protection }} %</span>
+    <br><br>
+    <span>facteur cotisations : {{ obj.frac_factor  }}</span>
+    <br><br>
+    <span>facteur division : {{ obj.div }}</span>
+    <br><br>
+    <button type="submit">Soumettre</button>
+</ul>
+</form>
+{% endblock %}

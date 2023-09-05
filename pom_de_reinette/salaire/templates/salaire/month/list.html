@@ -1,0 +1,13 @@
+{% block list %}
+<h1>Mois:</h1>
+<a href="{% url 'month_create' %}" style="font-weight: bold;">[créer]</a>
+<br><br>
+<ul>
+    {% for i in obj %}
+        <li>
+            {{ i.name }}
+            - <a id="list_contract" href="{% url 'month_list_contract' i.id %}">[détails]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

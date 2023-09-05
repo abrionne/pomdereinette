@@ -1,0 +1,15 @@
+{% block list %}
+<h1>Fin de contrats:</h1>
+<a href="{% url 'contractend_create' %}" style="font-weight: bold;">[créer]</a>
+<br><br>
+<ul>
+    {% for i in obj %}
+        <li>
+             {{ i.name }}
+            - <a href="{% url 'contractend_detail' i.id %}">[détail]</a>
+            - <a href="{% url 'contractend_update' i.id %}">[modifier]</a>
+            - <a href="{% url 'contractend_delete' i.id %}">[supprimer]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

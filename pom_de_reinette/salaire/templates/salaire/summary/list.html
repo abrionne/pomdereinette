@@ -1,0 +1,15 @@
+{% block list %}
+<h1>Cumuls mensuels:</h1>
+<a href="{% url 'summary_create' %}" style="font-weight: bold;">[créer]</a>
+<br><br>
+<ul>
+    {% for i in obj %}
+        <li>
+            {{ i.month_name }} {{ i.year }}
+            - <a href="{% url 'summary_detail' i.id %}">[détail]</a>
+            - <a href="{% url 'summary_update' i.id %}">[modifier]</a>
+            - <a href="{% url 'summary_delete' i.id %}">[supprimer]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

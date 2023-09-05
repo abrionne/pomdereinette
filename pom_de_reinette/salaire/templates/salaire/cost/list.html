@@ -1,0 +1,15 @@
+{% block list %}
+<h1>Coûts:</h1>
+<a href="{% url 'cost_create' %}" style="font-weight: bold;">[créer]</a>
+<br><br>
+<ul>
+    {% for i in obj %}
+        <li>
+            {{ i.name }}
+            - <a href="{% url 'cost_detail' i.id %}">[détail]</a>
+            - <a href="{% url 'cost_update' i.id %}">[modifier]</a>
+            - <a href="{% url 'cost_delete' i.id %}">[supprimer]</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

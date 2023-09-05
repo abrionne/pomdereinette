@@ -1,0 +1,33 @@
+{% block content %}
+<h2>Jours du mois de {{ month.month_name}} {{ month.year }} du contrat {{ month.name }}</h2>
+<form id="form" action="" data-list="/month/day_update/{{month.id}}" method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>date</th>
+                <th>Heures supplémentaires</th>
+                <th>Indemnité Entretien</th>
+                <th>Repas</th>
+                <th>Goûter</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for form in formset %}
+            <tr>
+                {{form.id}}
+                <td>{{ form.day_name }}</td>
+                <td>{{ form.day }}</td>
+                <td>{{ form.supp_hours_number }}</td>
+                <td>{{ form.ie }}</td>
+                <td>{{ form.meal }}</td>
+                <td>{{ form.snack }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Soumettre</button>
+</form>
+{% endblock %}

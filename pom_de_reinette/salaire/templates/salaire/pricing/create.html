@@ -1,0 +1,18 @@
+{% block content %}
+<h1>Création</h1>
+<form id="form" action="" method="post" novalidate>
+  {% csrf_token %}
+  <ul>
+      <span>Référence: {{ obj.name }}</span>
+      <br><br>
+      <span>Base horaires : {{ obj.base_hours }} h</span>
+      <br><br>
+      <span>Taux horaire : {{ obj.gross_time_rate }} €</span>
+      <br><br>
+      <span>Heure complémentaire : {{ obj.additional_hours_cost }} €</span>
+      <br><br>
+      <span>Heure majorée : {{ obj.bonus_hours_cost }} €</span>
+  </ul>
+  <button type="submit">Soumettre</button>
+</form>
+{% endblock %}
