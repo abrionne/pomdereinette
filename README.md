@@ -1,6 +1,10 @@
 # pomdereinette
 
-Formation Django sur une base de données test
+Django Web app for Pom' de reinette MAM accounting.
+
+## Screenshot
+
+see tutoriel.pdf
 
 ## create environment
 mkdir env<br>
