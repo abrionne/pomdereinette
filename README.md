@@ -2,9 +2,9 @@
 
 Django Web app for Pom' de reinette MAM accounting.
 
-## Screenshot
+## appli screenshots
 
-see tutoriel.pdf
+see tutorial.pdf
 
 ## create environment
 mkdir env<br>
