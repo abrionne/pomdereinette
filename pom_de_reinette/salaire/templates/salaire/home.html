@@ -6,6 +6,10 @@
     <script src="{% static 'nav.js' %}"></script>
 </header>
 <nav>
+    {% if request.user.is_authenticated %}
+    <p><strong>Utilisateur:</strong> {{ request.user.username }}</p>
+    {% endif %}
+    <a href="{% url 'logout' %}">Déconnexion</a>
     <div class="container">
         <div id="menu" class="column">
             <h1 style="color: royalblue;font-size: 3.5em;text-align: center;">MAM Pom' de reinette</h1>

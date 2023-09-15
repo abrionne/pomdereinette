@@ -20,6 +20,9 @@ from salaire import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('login/', views.custom_login, name='login'),
+    path('logout/',views.custom_logout, name='logout'),
+    path('restricted_access/',views.restricted_access, name='restricted_access'),
     path("home/", views.home,name="home"),
     path('delete/', views.delete, name='delete'),
     path("cost/list/", views.cost_list,name="cost_list"),

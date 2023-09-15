@@ -1,25 +1,61 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
+
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django import forms
 from salaire.models import Contract, Cost, Pricing,  Month, Day, Summary, ContractEnd
 from salaire.forms import ContractForm, CostForm,  PricingForm, MonthForm, DayForm, SummaryForm, ContractEndForm
 import calendar, locale
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required, permission_required
+
+## login page
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'salaire/login.html', {'error_message': 'Nom d\'utilisateur ou mot de passe incorrect.'})
+    return render(request, 'salaire/login.html')
+
+## logout page
+def custom_logout(request):
+    logout(request)
+    #message = "logout"
+    #return HttpResponse(message)
+    return render(request,'salaire/logout.html')
 
 ## home
+@login_required
 def home(request):
     return render(
         request,
         "salaire/home.html"
     )
 
+# blanck page
+@login_required
 def delete(request):
     message = ""
     return HttpResponse(message)
+
+# restricted_access
+@login_required
+def restricted_access(request):
+    return render(
+        request,
+        "salaire/restricted_access.html",
+    )
+
 ## cost
 
 # list
+@login_required
+@permission_required('salaire.view_cost',login_url='restricted_access')
 def cost_list(request):
     obj= Cost.objects.all()
     return render(
@@ -29,6 +65,8 @@ def cost_list(request):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_cost',login_url='restricted_access')
 def cost_detail(request,id):
     obj = Cost.objects.get(id=id)
     return render(request,
@@ -37,6 +75,8 @@ def cost_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_cost',login_url='restricted_access')
 def cost_create(request):
     if request.method == 'POST':
         form = CostForm(request.POST)
@@ -52,6 +92,8 @@ def cost_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_cost',login_url='restricted_access')
 def cost_update(request,id):
     obj = Cost.objects.get(id=id)
     if request.method == 'POST':
@@ -68,6 +110,8 @@ def cost_update(request,id):
     )
 
 # delete
+@login_required
+@permission_required('salaire.delete_cost',login_url='restricted_access')
 def cost_delete(request, id):
     obj = Cost.objects.get(id=id)
     if request.method == 'POST':
@@ -80,6 +124,8 @@ def cost_delete(request, id):
 ## pricing
 
 # list
+@login_required
+@permission_required('salaire.view_pricing',login_url='restricted_access')
 def pricing_list(request):
     obj= Pricing.objects.all()
     return render(
@@ -89,6 +135,8 @@ def pricing_list(request):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_pricing',login_url='restricted_access')
 def pricing_detail(request,id):
     obj = Pricing.objects.get(id=id)
     return render(request,
@@ -97,6 +145,8 @@ def pricing_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_pricing',login_url='restricted_access')
 def pricing_create(request):
     if request.method == 'POST':
         form = PricingForm(request.POST)
@@ -112,6 +162,8 @@ def pricing_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_pricing',login_url='restricted_access')
 def pricing_update(request,id):
     obj = Pricing.objects.get(id=id)
     if request.method == 'POST':
@@ -126,6 +178,8 @@ def pricing_update(request,id):
             {'obj': form})
 
 # delete
+@login_required
+@permission_required('salaire.delete_pricing',login_url='restricted_access')
 def pricing_delete(request, id):
     obj = Pricing.objects.get(id=id)
     if request.method == 'POST':
@@ -138,6 +192,8 @@ def pricing_delete(request, id):
 ## contracts
 
 # list
+@login_required
+@permission_required('salaire.view_contract',login_url='restricted_access')
 def contract_list(request):
     obj= Contract.objects.all()
     return render(
@@ -147,6 +203,8 @@ def contract_list(request):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_contract',login_url='restricted_access')
 def contract_detail(request,id):
     obj = Contract.objects.get(id=id)
     return render(request,
@@ -155,6 +213,8 @@ def contract_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_contract',login_url='restricted_access')
 def contract_create(request):
     if request.method == 'POST':
         form = ContractForm(request.POST)
@@ -170,6 +230,8 @@ def contract_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_contract',login_url='restricted_access')
 def contract_update(request,id):
     obj = Contract.objects.get(id=id)
     if request.method == 'POST':
@@ -184,6 +246,8 @@ def contract_update(request,id):
             {'obj': form})
 
 # delete
+@login_required
+@permission_required('salaire.delete_contract',login_url='restricted_access')
 def contract_delete(request, id):
     obj = Contract.objects.get(id=id)
     if request.method == 'POST':
@@ -197,6 +261,8 @@ def contract_delete(request, id):
 ## month
 
 # list
+@login_required
+@permission_required('salaire.view_month',login_url='restricted_access')
 def month_list(request):
     obj= Contract.objects.all()
     return render(
@@ -206,6 +272,8 @@ def month_list(request):
     )
 
 # contract months
+@login_required
+@permission_required('salaire.view_month',login_url='restricted_access')
 def month_list_contract(request,id):
     contract=Contract.objects.get(id=id)
     obj= Month.objects.all().filter(name=id)
@@ -220,6 +288,8 @@ def month_list_contract(request,id):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_month',login_url='restricted_access')
 def month_detail(request,id):
     obj = Month.objects.get(id=id)
     days = Day.objects.filter(name=obj)
@@ -240,6 +310,8 @@ def month_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_month',login_url='restricted_access')
 def month_create(request):
     locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
     if request.method == 'POST':
@@ -269,6 +341,8 @@ def month_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_day',login_url='restricted_access')
 def day_update(request,id):
     month = Month.objects.get(id=id)
     contract=Contract.objects.get(name=month.name)
@@ -300,6 +374,8 @@ def day_update(request,id):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_month',login_url='restricted_access')
 def month_update(request,id):
     obj = Month.objects.get(id=id)
     if request.method == 'POST':
@@ -314,6 +390,8 @@ def month_update(request,id):
             {'obj': form})
 
 # delete
+@login_required
+@permission_required('salaire.delete_month',login_url='restricted_access')
 def month_delete(request, id):
     obj = Month.objects.get(id=id)
     if request.method == 'POST':
@@ -326,6 +404,8 @@ def month_delete(request, id):
 ## summary
 
 # list
+@login_required
+@permission_required('salaire.view_summary',login_url='restricted_access')
 def summary_list(request):
     obj= Summary.objects.all()
     return render(
@@ -335,6 +415,8 @@ def summary_list(request):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_summary',login_url='restricted_access')
 def summary_detail(request,id):
     obj = Summary.objects.get(id=id)
     month = Month.objects.filter(month=obj.month,year=obj.year)
@@ -349,6 +431,8 @@ def summary_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_summary',login_url='restricted_access')
 def summary_create(request):
     if request.method == 'POST':
         form = SummaryForm(request.POST)
@@ -364,6 +448,8 @@ def summary_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_summary',login_url='restricted_access')
 def summary_update(request,id):
     obj = Summary.objects.get(id=id)
     if request.method == 'POST':
@@ -380,6 +466,8 @@ def summary_update(request,id):
     )
 
 # delete
+@login_required
+@permission_required('salaire.delete_summary',login_url='restricted_access')
 def summary_delete(request, id):
     obj = Summary.objects.get(id=id)
     if request.method == 'POST':
@@ -392,6 +480,8 @@ def summary_delete(request, id):
 ## Contract end
 
 # list
+@login_required
+@permission_required('salaire.view_contractend',login_url='restricted_access')
 def contractend_list(request):
     obj= ContractEnd.objects.all()
     return render(
@@ -401,6 +491,8 @@ def contractend_list(request):
     )
 
 # detail
+@login_required
+@permission_required('salaire.view_contractend',login_url='restricted_access')
 def contractend_detail(request,id):
     obj = ContractEnd.objects.get(id=id)
     return render(
@@ -410,6 +502,8 @@ def contractend_detail(request,id):
     )
 
 # create
+@login_required
+@permission_required('salaire.add_contractend',login_url='restricted_access')
 def contractend_create(request):
     if request.method == 'POST':
         form = ContractEndForm(request.POST)
@@ -425,6 +519,8 @@ def contractend_create(request):
     )
 
 # update
+@login_required
+@permission_required('salaire.change_contractend',login_url='restricted_access')
 def contractend_update(request,id):
     obj = ContractEnd.objects.get(id=id)
     if request.method == 'POST':
@@ -441,6 +537,8 @@ def contractend_update(request,id):
     )
 
 # delete
+@login_required
+@permission_required('salaire.delete_contractend',login_url='restricted_access')
 def contractend_delete(request, id):
     obj = ContractEnd.objects.get(id=id)
     if request.method == 'POST':

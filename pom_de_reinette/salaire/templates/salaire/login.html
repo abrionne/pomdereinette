@@ -1,0 +1,31 @@
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'nav.js' %}"></script>
+</header>
+<div class="container">
+    <div id="menu" class="column">
+        <h1 style="color: royalblue;font-size: 3.5em;text-align: center;">MAM Pom' de reinette</h1>
+    </div>
+    <div class="column">    
+        <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="230px" width="230px">
+    </div>
+</div>
+</nav>
+<body>
+    <h1>Connexion</h1>
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Se connecter">
+    </form>
+</body>
+</html>

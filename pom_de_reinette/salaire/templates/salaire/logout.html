@@ -1,0 +1,20 @@
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'nav.js' %}"></script>
+</header>
+<div class="container">
+    <div id="menu" class="column">
+        <h1 style="color: royalblue;font-size: 3.5em;text-align: center;">MAM Pom' de reinette</h1>
+    </div>
+    <div class="column">    
+        <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="230px" width="230px">
+    </div>
+</div>
+</nav>
+<body>
+    <h1>Vous avez été déconnecté avec succès.</h1>
+    <a href="{% url 'login' %}">Connexion</a>
+</body>

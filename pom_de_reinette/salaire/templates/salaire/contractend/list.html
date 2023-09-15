@@ -1,14 +1,23 @@
 {% block list %}
 <h1>Fin de contrats:</h1>
-<a href="{% url 'contractend_create' %}" style="font-weight: bold;">[créer]</a>
+{% if perms.salaire.add_contractend %}
+    <a href="{% url 'contractend_create' %}" style="font-weight: bold;">[créer]</a>
+{% endif %}
 <br><br>
 <ul>
     {% for i in obj %}
         <li>
              {{ i.name }}
-            - <a href="{% url 'contractend_detail' i.id %}">[détail]</a>
-            - <a href="{% url 'contractend_update' i.id %}">[modifier]</a>
-            - <a href="{% url 'contractend_delete' i.id %}">[supprimer]</a>
+             {% if perms.salaire.view_contractend %}
+                - <a href="{% url 'contractend_detail' i.id %}">[détail]</a>
+            {% endif %}
+            {% if perms.salaire.change_contractend %}
+                - <a href="{% url 'contractend_update' i.id %}">[modifier]</a>
+            {% endif %}
+            {% if perms.salaire.delete_contractend %}
+                - <a href="{% url 'contractend_delete' i.id %}">[supprimer]</a>
+            {% endif %}
+
         </li>
     {% endfor %}
 </ul>

@@ -1,6 +1,8 @@
 {% block list %}
 <h1>Mois:</h1>
-<a href="{% url 'month_create' %}" style="font-weight: bold;">[créer]</a>
+{% if perms.salaire.add_month %}
+    <a href="{% url 'month_create' %}" style="font-weight: bold;">[créer]</a>
+    {% endif %}
 <br><br>
 <ul>
     {% for i in obj %}

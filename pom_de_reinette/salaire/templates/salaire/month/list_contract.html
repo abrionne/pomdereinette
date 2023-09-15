@@ -4,9 +4,15 @@
     {% for i in obj %}
         <li>
             {{ i.month_name }} {{ i.year }}
-            - <a href="{% url 'month_detail' i.id %}" title="affichage dans nouvel onglet">[détail]</a>
-            - <a href="{% url 'month_update' i.id %}" id="update_ref">[modifier]</a>
+            {% if perms.salaire.view_month %}
+                - <a href="{% url 'month_detail' i.id %}" title="affichage dans nouvel onglet">[détail]</a>
+            {% endif %}
+            {% if perms.salaire.change_month %}
+                - <a href="{% url 'month_update' i.id %}" id="update_ref">[modifier]</a>
+            {% endif %}
+            {% if perms.salaire.delete_month %}
             - <a href="{% url 'month_delete' i.id %}">[supprimer]</a>
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
