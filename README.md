@@ -7,7 +7,7 @@ Django Web app for Pom' de reinette MAM accounting.
 see tutorial.pdf
 
 ## create environment
-cd "$(find ~ -type d -name "pomdereinette-main" -print -quit)"
+cd "$(find ~ -type d -name "pomdereinette-main" -print -quit)"<br>
 python -m venv env<br>
 source env/bin/activate<br>
 pip install -r requirements.txt
