@@ -13,9 +13,13 @@ contract_update.png
 
 
 ## Coûts
-![create](./pictures/cost_create.png)
+
+![create](./pictures/cost_create.png){width="50%"}
+
 ![detail](./pictures/cost_detail.png)
+
 ![update](./pictures/cost_update.png)
+
 ![delete](./pictures/cost_delete.png)
 
 month_create_days.png
