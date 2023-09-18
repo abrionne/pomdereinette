@@ -13,10 +13,12 @@ python -m venv env<br>
 source env/bin/activate<br>
 pip install -r requirements.txt
 
-# configure database for users access
-python ./pom_de_reinette/manage.py createsuperuser<br>
+## configure database (SQLite)
 python ./pom_de_reinette/manage.py makemigrations<br>
 python ./pom_de_reinette/manage.py migrate<br>
+
+## create admin log it and add users access
+python ./pom_de_reinette/manage.py createsuperuser<br>
 python ./pom_de_reinette/manage.py runserver<br>
 xdg-open http://127.0.0.1:8000/admin<br>
 admin log and create users/groups permissions
