@@ -12,13 +12,13 @@ python -m venv env<br>
 source env/bin/activate<br>
 pip install -r requirements.txt
 
-# configure database users access
-python manage.py createsuperuser
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
-xdg-open http://127.0.0.1:8000/admin
-create users/groups permissions
+# configure database for users access
+python manage.py createsuperuser<br>
+python manage.py makemigrations<br>
+python manage.py migrate<br>
+python manage.py runserver<br>
+xdg-open http://127.0.0.1:8000/admin<br>
+admin log and create users/groups permissions
 
 ## create launch.sh (linux) or launch.bat (windows)
 #!/bin/bash<br>
