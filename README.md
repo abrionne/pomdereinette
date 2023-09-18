@@ -2,9 +2,9 @@
 
 Django Web app for Pom' de reinette MAM accounting.
 
-## appli screenshots
+## application screenshots
 
-see tutorial.pdf
+see [screenshots](screenshots.md)
 
 ## create environment
 cd "$(find ~ -type d -name "pomdereinette-main" -print -quit)"<br>
