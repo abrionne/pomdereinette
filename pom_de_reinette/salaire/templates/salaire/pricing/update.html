@@ -2,13 +2,19 @@
 <h1>Mise à jour</h1>
 <form id="form" action="" method="post" novalidate>
   {% csrf_token %}
-  <ul>
+  {% if linked %}
+    <h3 style="color:#FF0000">Accès refusé</h3>
+    Cette tarification horaire est utilisée dans les contrats suivants:<br>
+    {{contracts}}
+  {% else %}
+    <ul>
       <li>Référence: {{ obj.name }}</li>
       <li>Base horaires : {{ obj.base_hours }} h</li>
       <li>Taux horaire : {{ obj.gross_time_rate }} €</li>
       <li>Heure complémentaire : {{ obj.additional_hours_cost }} €</li>
       <li>Heure majorée : {{ obj.bonus_hours_cost }} €</li>
-  </ul>
-  <button type="submit">Soumettre</button>
+    </ul>
+    <button type="submit">Soumettre</button>
+  {% endif %}
 </form>
 {% endblock %}
