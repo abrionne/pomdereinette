@@ -98,10 +98,10 @@ def cost_update(request,id):
     obj = Cost.objects.get(id=id)
     months=obj.month_set.all()
     linked_months=months.exists()
-    months=', '.join(map(str,months))
+    months='<br>'.join(map(str,months))
     summaries=obj.summary_set.all()
     linked_summaries=summaries.exists()
-    summaries=', '.join(map(str,summaries))
+    summaries='<br>'.join(map(str,summaries))
     if request.method == 'POST':
         form = CostForm(request.POST,instance=obj)
         if form.is_valid():
@@ -182,7 +182,7 @@ def pricing_update(request,id):
     contracts=obj.contract_set.all()
     linked=contracts.exists()
     contracts=contracts.values_list("name",flat=True)
-    contracts=', '.join(map(str,contracts))
+    contracts='<br>'.join(map(str,contracts))
     if request.method == 'POST':
         form = PricingForm(request.POST,instance=obj)
         if form.is_valid():
@@ -259,7 +259,7 @@ def contract_update(request,id):
     obj = Contract.objects.get(id=id)
     months=obj.month_set.all()
     linked=months.exists()
-    months=', '.join(map(str,months))
+    months='<br>'.join(map(str,months))
     if request.method == 'POST':
         form = ContractForm(request.POST,instance=obj)
         if form.is_valid():
