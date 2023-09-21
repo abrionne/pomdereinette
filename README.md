@@ -22,7 +22,7 @@ admin log and create users/groups permissions
 
 ### launch.sh
 #!/bin/bash<br>
-cd "$(find ~ -type d -name "pomdereinette-main" -print -quit)"
+cd "/path/to/pomdereinette-main" **custom pomdereinette-main path**
 source ./env/bin/activate<br>
 python ./pom_de_reinette/manage.py runserver<br>
 xdg-open http://127.0.0.1:8000/login
