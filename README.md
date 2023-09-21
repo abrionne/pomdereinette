@@ -7,7 +7,7 @@ see [screenshots](screenshots.md)
 ## Install
 
 ### create packages environment
-cd "/path/to/pomdereinette-main" <p style="color:red;">path to pomdereinette-main</p><br>
+cd "/path/to/pomdereinette-main"<br>
 python -m venv env<br>
 source env/bin/activate<br>
 pip install -r requirements.txt
@@ -22,7 +22,7 @@ admin log and create users/groups permissions
 
 ### launch.sh
 #!/bin/bash<br>
-cd "/path/to/pomdereinette-main" <p style="color:red;">path to pomdereinette-main</p><br>
+cd "/path/to/pomdereinette-main"<br>
 source ./env/bin/activate<br>
 python ./pom_de_reinette/manage.py runserver<br>
 xdg-open http://127.0.0.1:8000/login
