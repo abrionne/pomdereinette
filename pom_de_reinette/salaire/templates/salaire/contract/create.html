@@ -5,22 +5,31 @@
   {% csrf_token %}
   <ul>
       <span>Contrat : {{ obj.name }}</span>
+      {{ obj.name.errors }}
       <br><br>
       <span>Nombre d'heures par semaine : {{ obj.week_hours }}</span>
+      {{ obj.week_hours.errors }}
       <br><br>
       <span>Nombre de semaines : {{ obj.weeks_number }}</span>
+      {{ obj.weeks_number.errors }}
       <br><br>
       <span>Nombre de mois : {{ obj.months_number }}</span>
+      {{ obj.months_number.errors }}
       <br><br>
       <span>Tarification horaire : {{ obj.pricing }}</span>
+      {{ obj.pricing.errors }}
       <br><br>
       <span>Heures supplémentaires / mois : {{ obj.supp_hours_number }} h</span>
+      {{ obj.supp_hours_number.errors }}
       <br><br>
       <span>Nombre d'heures normales : {{ obj.week_hours_norms }} h</span>
+      {{ obj.week_hours_norms.errors }}
       <br><br>
       <span>Nombre de jours d'activité : {{ obj.days_activity_number }}</span>
+      {{ obj.days_activity_number.errors }}
       <br><br>
       <span>Nombre de congés payés : {{ obj.paid_vacation_number }}</span>
+      {{ obj.paid_vacation_number.errors }}
       <br><br>
       <strong>Préférences</strong>:
       <table>

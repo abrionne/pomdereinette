@@ -4,14 +4,19 @@
   {% csrf_token %}
   <ul>
       <span>Référence: {{ obj.name }}</span>
+      {{ obj.name.errors }}
       <br><br>
       <span>Base horaires : {{ obj.base_hours }} h</span>
+      {{ obj.base_hours.errors }}
       <br><br>
       <span>Taux horaire : {{ obj.gross_time_rate }} €</span>
+      {{ obj.base_hours.errors }}
       <br><br>
       <span>Heure complémentaire : {{ obj.additional_hours_cost }} €</span>
+      {{ obj.base_hours.errors }}
       <br><br>
       <span>Heure majorée : {{ obj.bonus_hours_cost }} €</span>
+      {{ obj.base_hours.errors }}
   </ul>
   <button type="submit">Soumettre</button>
 </form>

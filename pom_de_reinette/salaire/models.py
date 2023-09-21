@@ -7,7 +7,8 @@ from django.utils import timezone
 # pricing model
 class Pricing(models.Model):
     name = models.fields.CharField(
-        max_length=100
+        max_length=100,
+        unique=True
     )
     base_hours = models.fields.DecimalField(
         max_digits=5,
@@ -31,7 +32,7 @@ class Pricing(models.Model):
     )
     def __str__(self):
         return f'{self.name}'
-    
+
 # cost model
 class Cost(models.Model):
     class Months(models.IntegerChoices):
@@ -49,7 +50,8 @@ class Cost(models.Model):
         Décembre = 12
 
     name = models.fields.CharField(
-        max_length=20
+        max_length=20,
+        unique=True
     )
     IE = models.fields.DecimalField(
           max_digits=5,
@@ -118,7 +120,8 @@ class Cost(models.Model):
     )
     frac_factor = models.fields.DecimalField(
         max_digits=5,
-        decimal_places=4
+        decimal_places=4,
+        validators=[MinValueValidator(0), MaxValueValidator(1)]
     )
     div = models.fields.IntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)]
@@ -133,7 +136,8 @@ class Cost(models.Model):
 # contrat model
 class Contract(models.Model):
     name = models.fields.CharField(
-        max_length=100
+        max_length=100,
+        unique=True
     )
     week_hours = models.fields.DecimalField(
         max_digits=4,
