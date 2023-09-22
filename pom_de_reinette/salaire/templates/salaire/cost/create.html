@@ -7,10 +7,13 @@
     {{ obj.name.errors }}
     <br><br>
     <span>Indemnité Entretien : {{ obj.IE }} €</span>
+    {{ obj.IE.errors }}
     <br><br>
     <span>repas : {{ obj.meal }} €</span>
+    {{ obj.meal.errors }}
     <br><br>
     <span>goûter : {{ obj.snack }} €</span>
+    {{ obj.snack.errors }}
     <br><br>
     <span>congés payés : {{ obj.paid_leave }} %</span>
     {{ obj.paid_leave.errors }}
@@ -43,6 +46,7 @@
     {{ obj.frac_factor.errors }} 
     <br><br>
     <span>facteur division : {{ obj.div }}</span>
+    {{ obj.div.errors }}
     <br><br>
 </ul>
 <button type="submit">Soumettre</button>
