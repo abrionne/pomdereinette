@@ -1,5 +1,5 @@
-
 document.addEventListener("DOMContentLoaded", function () {
+
     const menuContainer = document.getElementById("menu");
     const listContainer = document.getElementById("list");
     const contentContainer = document.getElementById("content");
@@ -76,4 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
             listContainer.innerHTML = data;
         });
     }
+});
+
+
+// Récupérez l'élément HTML que vous souhaitez mettre en avant
+const texteASurvoler = document.getElementById('texte-a-survoler');
+
+// Ajoutez un écouteur d'événement pour le survol de la souris
+texteASurvoler.addEventListener('mouseenter', () => {
+  texteASurvoler.classList.add('mis-en-avant');
+});
+
+// Ajoutez un écouteur d'événement pour lorsque la souris quitte l'élément
+texteASurvoler.addEventListener('mouseleave', () => {
+  texteASurvoler.classList.remove('mis-en-avant');
 });
