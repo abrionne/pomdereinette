@@ -77,17 +77,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-
-// Récupérez l'élément HTML que vous souhaitez mettre en avant
-const texteASurvoler = document.getElementById('texte-a-survoler');
-
-// Ajoutez un écouteur d'événement pour le survol de la souris
-texteASurvoler.addEventListener('mouseenter', () => {
-  texteASurvoler.classList.add('mis-en-avant');
-});
-
-// Ajoutez un écouteur d'événement pour lorsque la souris quitte l'élément
-texteASurvoler.addEventListener('mouseleave', () => {
-  texteASurvoler.classList.remove('mis-en-avant');
-});
