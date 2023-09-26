@@ -8,9 +8,9 @@
 <nav>
     <p><strong>Utilisateur:</strong> {{ request.user.username }} <a href="{% url 'logout' %}">[Déconnexion]</a></p>
     <div class="container">
-        <div id="menu" class="column">
-            <h1 style="color: royalblue;font-size: 3.5em;text-align: center;">MAM Pom' de reinette</h1>
-            <table class="styled2">
+        <div class="column">
+            <h1 style="color: royalblue;font-size: 3em;text-align: center;">MAM Pom' de reinette</h1>
+            <table id="menu" class="styled2">
                 <tbody>
                     <tr>
                         <td><a href="{% url 'cost_list' %}">Coûts</a></td>
