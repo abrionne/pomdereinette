@@ -36,7 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const clickedLink = event.target;
         if (clickedLink.tagName === "A") {
             contentContainer.innerHTML ="";
+            const menuLinks = listContainer.querySelectorAll("a");
+            menuLinks.forEach((link) => {
+                link.classList.remove("highlighttext");
+            });
             clickedLink.classList.add("highlighttext");
+
+
             const href = clickedLink.getAttribute("href");
             fetch(href)
             .then(response => response.text())
