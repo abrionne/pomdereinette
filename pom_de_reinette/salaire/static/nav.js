@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         const clickedLink = event.target;
         if (clickedLink.tagName === "A") {
+            const menuLinks = menuContainer.querySelectorAll("a");
+            menuLinks.forEach((link) => {
+                link.classList.remove("highlighttext");
+            });
+            clickedLink.classList.add("highlighttext");
+            menuLinks.forEach((link) => {
+                const parentTd = link.parentElement;
+                parentTd.classList.remove("highlightbox");
+            });
+            const parentTd = clickedLink.parentElement;
+            parentTd.classList.add("highlightbox");
             listContainer.innerHTML =""; 
             contentContainer.innerHTML ="";
             const href = clickedLink.getAttribute("href");
@@ -25,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const clickedLink = event.target;
         if (clickedLink.tagName === "A") {
             contentContainer.innerHTML ="";
+            clickedLink.classList.add("highlighttext");
             const href = clickedLink.getAttribute("href");
             fetch(href)
             .then(response => response.text())

@@ -1,12 +1,19 @@
 a {
     text-decoration: none;
   }
+.highlightbox {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+.highlighttext {
+    font-size: 1.2em;
+}
 .styled td {
     border-bottom: 1px solid grey;
     background-color: rgb(252, 250, 250) ;
     padding: 2.5px;
     text-align: left;
     vertical-align: bottom;
+
 }
 .styled2 td {
     font-size: 1.3em;
