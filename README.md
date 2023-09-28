@@ -4,7 +4,7 @@ Django Web app for Pom' de reinette MAM accounting.
 
 see [screenshots](screenshots.md)
 
-## Install
+## Local installation
 
 ### create packages environment
 cd "/path/to/pomdereinette-main"<br>
