@@ -31,6 +31,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    menuContainer.addEventListener("mouseover", (event) => {
+        event.preventDefault();
+        const overLink = event.target;
+        if (overLink.tagName === "A") {
+            const menuLinks = menuContainer.querySelectorAll("a");
+            menuLinks.forEach((link) => {
+                link.classList.remove("highlighttext");
+            });
+            overLink.classList.add("highlighttext");
+            const parentTd = overLink.parentElement;
+            parentTd.classList.add("highlightbox");
+        }
+    });
+
+    menuContainer.addEventListener("mouseout", () => {
+        const menuLinks = menuContainer.querySelectorAll("a");
+        menuLinks.forEach((link) => {
+            link.classList.remove("highlighttext");
+            const parentTd = link.parentElement;
+            parentTd.classList.remove("highlightbox");
+        });
+    });
+
     listContainer.addEventListener("click", (event) => {
         event.preventDefault();
         const clickedLink = event.target;
