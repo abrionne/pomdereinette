@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 link.classList.remove("highlighttext");
             });
             clickedLink.classList.add("highlighttext");
-
-
             const href = clickedLink.getAttribute("href");
             fetch(href)
             .then(response => response.text())
