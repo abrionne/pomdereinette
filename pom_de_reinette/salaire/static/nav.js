@@ -10,48 +10,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (clickedLink.tagName === "A") {
             const menuLinks = menuContainer.querySelectorAll("a");
             menuLinks.forEach((link) => {
-                link.classList.remove("highlighttext");
+                link.classList.remove("clicked");
             });
-            clickedLink.classList.add("highlighttext");
-            menuLinks.forEach((link) => {
-                const parentTd = link.parentElement;
-                parentTd.classList.remove("highlightbox");
-            });
-            const parentTd = clickedLink.parentElement;
-            parentTd.classList.add("highlightbox");
+            clickedLink.classList.add("clicked");
             listContainer.innerHTML =""; 
             contentContainer.innerHTML ="";
             const href = clickedLink.getAttribute("href");
             fetch(href)
-            .then(response => response.text())
-            .then(data => {
-                listContainer.innerHTML = data;
-                document.getElementById("list").setAttribute("data-menu", href);
+                .then(response => response.text())
+                .then(data => {
+                    listContainer.innerHTML = data;
+                    document.getElementById("list").setAttribute("data-menu", href);
             })
         }
-    });
-
-    menuContainer.addEventListener("mouseover", (event) => {
-        event.preventDefault();
-        const overLink = event.target;
-        if (overLink.tagName === "A") {
-            const menuLinks = menuContainer.querySelectorAll("a");
-            menuLinks.forEach((link) => {
-                link.classList.remove("highlighttext");
-            });
-            overLink.classList.add("highlighttext");
-            const parentTd = overLink.parentElement;
-            parentTd.classList.add("highlightbox");
-        }
-    });
-
-    menuContainer.addEventListener("mouseout", () => {
-        const menuLinks = menuContainer.querySelectorAll("a");
-        menuLinks.forEach((link) => {
-            link.classList.remove("highlighttext");
-            const parentTd = link.parentElement;
-            parentTd.classList.remove("highlightbox");
-        });
     });
 
     listContainer.addEventListener("click", (event) => {

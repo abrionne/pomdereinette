@@ -1,13 +1,41 @@
 a {
     text-decoration: none;
   }
-.highlightbox {
+#menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#menu li {
+    display: inline-block;
+    scroll-margin-left:0;
+}
+#menu li:first-child {
+    margin-left: 0;
+}
+#menu a {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: royalblue;
+    background-color: rgb(247, 243, 243) ;
+    padding: 10px;
+    padding-inline: 10px;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: center;
+}
+#menu a:hover{
+    font-size: 1.7em;
+    color: purple;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-
-.highlighttext {
-    font-size: 1.2em;
-    font-weight: bold;
+#menu a.clicked{
+    font-size: 1.8em;
+    color: royalblue;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+.highlighttext{
+    font-size: 1.6em;
 }
 .styled td {
     border-bottom: 1px solid grey;

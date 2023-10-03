@@ -9,19 +9,15 @@
     <div class="container">
         <div class="column">
             <h1 style="color: royalblue;font-size: 3em;text-align: center;">MAM Pom' de reinette</h1>
-            <p><strong>Utilisateur:</strong> {{ request.user.username }} <a href="{% url 'logout' %}">[déconnexion]</a></p>
-            <table id="menu" class="styled2">
-                <tbody>
-                    <tr>
-                        <td><a  style="color: royalblue" href="{% url 'cost_list' %}">Coûts</a></td>
-                        <td><a  style="color: royalblue" href="{% url 'pricing_list' %}">Tarifications horaires</a></td>
-                        <td><a  style="color: royalblue" href="{% url 'contract_list' %}">Contrats</a></td>
-                        <td><a  style="color: royalblue" href="{% url 'month_list' %}">Mois</a></td>
-                        <td><a  style="color: royalblue" href="{% url 'summary_list' %}">Cumuls mensuels</a></td>
-                        <td><a  style="color: royalblue" href="{% url 'contractend_list' %}">Fin de contrats</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <p><strong>Utilisateur:</strong> {{ request.user.username }} <a href="{% url 'logout' %}">[déconnexion]</a></p><br>
+            <ul id="menu">
+                <li><a href="{% url 'cost_list' %}">Coûts</a></li>
+                <li><a href="{% url 'pricing_list' %}">Tarifications horaires</a></li>
+                <li><a href="{% url 'contract_list' %}">Contrats</a></li>
+                <li><a href="{% url 'month_list' %}">Mois</a></li>
+                <li><a href="{% url 'summary_list' %}">Cumuls mensuels</a></li>
+                <li><a href="{% url 'contractend_list' %}">Fin de contrats</a></li>
+            </ul>
         </div>
         <div class="column">    
             <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="230px" width="230px">
