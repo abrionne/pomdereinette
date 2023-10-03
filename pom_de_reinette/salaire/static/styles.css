@@ -15,7 +15,7 @@ a {
 }
 #menu a {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.4em;
     color: royalblue;
     background-color: rgb(247, 243, 243) ;
     padding: 10px;
@@ -25,12 +25,12 @@ a {
     vertical-align: center;
 }
 #menu a:hover{
-    font-size: 1.7em;
+    font-size: 1.6em;
     color: purple;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
 #menu a.clicked{
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: royalblue;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
