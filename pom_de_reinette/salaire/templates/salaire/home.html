@@ -10,6 +10,11 @@
         <div class="column">
             <h1 style="color: royalblue;font-size: 3em;text-align: center;">MAM Pom' de reinette</h1>
             <p><strong>Utilisateur:</strong> {{ request.user.username }} <a href="{% url 'logout' %}">[déconnexion]</a></p><br>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div><br><br>
             <ul id="menu">
                 <li><a href="{% url 'cost_list' %}">Coûts</a></li>
                 <li><a href="{% url 'pricing_list' %}">Tarifications horaires</a></li>
@@ -20,9 +25,9 @@
             </ul>
         </div>
         <div class="column">    
-            <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="230px" width="230px">
+            <img src="{% static 'logo.jpg' %}" alt="logo MAM pom'de reinette" height="280px" width="280px">
         </div>
-    </div>
+    </div><br>
 </nav>
 <main>
     <div class="container">

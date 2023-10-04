@@ -1,8 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    const hamburger = document.querySelector('.hamburger');
     const menuContainer = document.getElementById("menu");
     const listContainer = document.getElementById("list");
     const contentContainer = document.getElementById("content");
+
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('active');
+        menuContainer.classList.toggle('active');
+    });
 
     menuContainer.addEventListener("click", (event) => {
         event.preventDefault();
