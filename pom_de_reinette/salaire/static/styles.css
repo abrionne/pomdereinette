@@ -1,3 +1,9 @@
+input[type="text"] {
+    width: 100px;
+}
+input[type="number"] {
+    width: 50px;
+}
 a {
     text-decoration: none;
   }
@@ -24,17 +30,17 @@ a {
     text-align: center;
     vertical-align: center;
 }
-#menu a:hover{
+#menu a:hover {
     font-size: 1.6em;
     color: purple;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-#menu a.clicked{
+#menu a.clicked {
     font-size: 1.6em;
     color: royalblue;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
 }
-.highlighttext{
+.highlighttext {
     font-size: 1.6em;
 }
 .styled td {
@@ -61,7 +67,7 @@ a {
     width: 1900px;
     height: 250px;
   }
-.column{
+.column {
    width: 100%;
 }
 .box {
@@ -70,29 +76,29 @@ a {
     user-select: none;
     -webkit-user-select: none; 
   }
-#box1{
+#box1 {
     top: 240px;
 }
-#box2{
+#box2 {
     top: -10px;
     left: 970px;
 }
-#box3{
+#box3 {
     top: 240px;
     left: 500px;
 }
-#box4{
+#box4 {
     top: 530px;
 }
-#box5{
+#box5 {
     top: 450px;
     left: 500px;
 }
-#box6{
+#box6 {
     top: 750px;
     left: 500px;
 }
-#box7{
+#box7 {
     top: 850px;
     left: 0px;
 }
