@@ -2,7 +2,7 @@
 
 Django Web app for Pom' de reinette MAM accounting.
 
-see [screenshots](screenshots.md)
+see [demo_movie](demo_movie.mkv)
 
 ## Local installation
 
