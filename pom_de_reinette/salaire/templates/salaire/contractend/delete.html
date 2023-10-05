@@ -1,8 +1,0 @@
-{% block content %}
-<h1>Suppression</h1>
-<p>Etes-vous sûr de vouloir supprimer la fin de contrat : {{ obj.name }} ?</p>
-<form id="form" action="" method="post">
-{% csrf_token %}
-<input type="submit" value="Supprimer">
-</form>
-{% endblock %}
