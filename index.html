@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Vidéo</title>
+    <style>
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <h1>Démo utilisation de l'application pomdereinette</h1>
-<video controls>
-  <source src="pomdereinette.mp4" type="video/mp4">
-  Votre navigateur ne prend pas en charge la lecture de vidéos au format MKV.
-</video>
+    <div class="video-container">
+        <video controls>
+            <source src="pomdereinette.mp4" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture de vidéos.
+        </video>
+    </div>
 </body>
 </html>
